@@ -223,3 +223,41 @@
   </script>
 </body>
 </html>
+
+</div>
+
+
+<div class="card section contact" id="contact">
+<h4 style="margin:0 0 6px">Message me</h4>
+<form onsubmit="event.preventDefault(); sendMail();">
+<input id="name" placeholder="Your name" required />
+<input id="email" placeholder="Your email" required style="margin-top:8px" />
+<textarea id="message" placeholder="Message" rows="4" style="margin-top:8px" required></textarea>
+<div style="margin-top:10px"><button class="btn btn-primary" type="submit">Send (opens mail)</button></div>
+</form>
+</div>
+</aside>
+</div>
+
+
+<footer>
+Built with ❤️ — Deploy on GitHub Pages • Last updated: Dec 1, 2025
+</footer>
+</div>
+
+
+<script>
+function copyCmd(text){
+navigator.clipboard?.writeText(text).then(()=>alert('Copied to clipboard'))
+}
+function sendMail(){
+const name=document.getElementById('name').value;
+const email=document.getElementById('email').value;
+const msg=document.getElementById('message').value;
+const subject=encodeURIComponent('Portfolio contact from '+name);
+const body=encodeURIComponent('Name: '+name+'\nEmail: '+email+'\n\n'+msg);
+window.location.href='mailto:you@example.com?subject='+subject+'&body='+body;
+}
+</script>
+</body>
+</html>
