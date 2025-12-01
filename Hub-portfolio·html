@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DevOps Portfolio — Your Name</title>
+  <meta name="description" content="DevOps Engineer portfolio — projects, skills, experience, contact. Host on GitHub Pages." />
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --muted:#95a3b8; --accent:#00d1b2; --glass: rgba(255,255,255,0.03);
+      --mono: 'Courier New', monospace;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial; background:linear-gradient(180deg,#071029 0%,var(--bg) 100%); color:#e6eef6; -webkit-font-smoothing:antialiased}
+    .container{max-width:1000px;margin:40px auto;padding:24px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#2bd1ff);display:flex;align-items:center;justify-content:center;font-weight:700;color:#042127}
+    h1{margin:0;font-size:20px}
+    p.lead{margin:6px 0 0;color:var(--muted)}
+
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:24px;margin-top:28px}
+    @media (max-width:880px){.grid{grid-template-columns:1fr;}.sidebar{order:2}}
+
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:12px;padding:18px;box-shadow:0 6px 20px rgba(3,6,12,0.6);}
+    .hero{display:flex;gap:18px;align-items:flex-start}
+    .avatar{width:96px;height:96px;border-radius:12px;background:linear-gradient(135deg,#fff3 0%, #fff1 100%);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--bg);font-size:28px}
+    .skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+    .badge{background:var(--glass);padding:6px 10px;border-radius:999px;font-size:13px;color:var(--muted)}
+
+    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:12px}
+    @media (max-width:700px){.projects{grid-template-columns:1fr}}
+    .project{padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);border:1px solid rgba(255,255,255,0.03)}
+    .project h3{margin:0 0 6px;font-size:15px}
+    .meta{font-size:13px;color:var(--muted);margin-bottom:8px}
+    .btn{display:inline-block;padding:8px 12px;border-radius:8px;text-decoration:none;font-weight:600}
+    .btn-primary{background:var(--accent);color:#042127}
+    .btn-ghost{border:1px solid rgba(255,255,255,0.06);color:var(--muted);background:transparent}
+
+    .sidebar .section{margin-bottom:14px}
+    .contact input, .contact textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+    .small{font-size:13px;color:var(--muted)}
+
+    footer{margin-top:30px;text-align:center;color:var(--muted);font-size:13px}
+    pre.cmd{background:#071226;padding:12px;border-radius:8px;margin:8px 0;color:#a8e0d6;font-family:var(--mono);font-size:13px}
+
+    .tech-list{display:flex;flex-wrap:wrap;gap:8px}
+    .tech{background:rgba(255,255,255,0.02);padding:6px 8px;border-radius:6px;font-size:13px;color:var(--muted)}
+
+    .ribbon{position:fixed;right:18px;top:18px;background:linear-gradient(90deg,#0b1020,#071029);padding:8px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);font-size:13px}
+  </style>
+</head>
+<body>
+  <div class="ribbon">Host on GitHub Pages — <strong>Settings → Pages</strong></div>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">RJ</div>
+        <div>
+          <h1>Your Name — DevOps Engineer</h1>
+          <p class="lead">SRE · Kubernetes · CI/CD · Observability · AWS · Terraform</p>
+        </div>
+      </div>
+      <nav>
+        <a href="#projects" class="btn btn-ghost">Projects</a>
+        <a href="#experience" class="btn btn-ghost">Experience</a>
+        <a href="#contact" class="btn btn-primary">Contact</a>
+      </nav>
+    </header>
+
+    <div class="grid">
+      <main>
+        <section class="card hero">
+          <div class="avatar">RJ</div>
+          <div>
+            <h2 style="margin:0 0 6px">Hi — I'm Your Name</h2>
+            <p class="small">DevOps Engineer with X years building resilient infrastructure, automating release pipelines, and improving reliability at scale. I love IaC, SRE practices, and turning firefighting into automation.</p>
+
+            <div class="skills" style="margin-top:12px">
+              <span class="badge">Kubernetes</span>
+              <span class="badge">Terraform</span>
+              <span class="badge">AWS</span>
+              <span class="badge">GitHub Actions</span>
+              <span class="badge">Prometheus</span>
+              <span class="badge">Grafana</span>
+              <span class="badge">Docker</span>
+            </div>
+
+            <div style="margin-top:14px">
+              <a class="btn btn-primary" href="#projects">See projects</a>
+              <a class="btn btn-ghost" href="mailto:you@example.com?subject=Hi%20from%20portfolio">Email me</a>
+            </div>
+          </div>
+        </section>
+
+        <section id="projects" class="card" style="margin-top:18px">
+          <h2 style="margin-top:0">Selected Projects</h2>
+          <div class="projects">
+            <article class="project">
+              <h3>1. GitOps Kubernetes (argocd)</h3>
+              <div class="meta">Automated cluster config using ArgoCD + Terraform. Zero-downtime deploys with health checks.</div>
+              <div class="tech-list">
+                <span class="tech">Terraform</span>
+                <span class="tech">ArgoCD</span>
+                <span class="tech">Helm</span>
+              </div>
+              <div style="margin-top:10px">
+                <a class="btn btn-primary" href="https://github.com/yourusername/gitops-k8s" target="_blank">View on GitHub</a>
+                <a class="btn btn-ghost" href="#" onclick="copyCmd('git clone https://github.com/yourusername/gitops-k8s.git')">Copy clone</a>
+              </div>
+            </article>
+
+            <article class="project">
+              <h3>2. CI/CD pipelines (actions)</h3>
+              <div class="meta">Multi-stage GitHub Actions pipelines for build, test, canary deploy, and promotion to prod.</div>
+              <div class="tech-list"><span class="tech">GitHub Actions</span><span class="tech">Docker</span></div>
+              <div style="margin-top:10px">
+                <a class="btn btn-primary" href="https://github.com/yourusername/actions-ci-cd" target="_blank">View on GitHub</a>
+                <a class="btn btn-ghost" href="#" onclick="copyCmd('gh repo clone yourusername/actions-ci-cd')">Copy clone</a>
+              </div>
+            </article>
+
+            <article class="project">
+              <h3>3. Observability Stack</h3>
+              <div class="meta">Prometheus + Grafana + Loki + OpenTelemetry to reduce MTTR and create dashboards for SLOs.</div>
+              <div class="tech-list"><span class="tech">Prometheus</span><span class="tech">Grafana</span></div>
+              <div style="margin-top:10px">
+                <a class="btn btn-primary" href="https://github.com/yourusername/observability-stack" target="_blank">View on GitHub</a>
+                <a class="btn btn-ghost" href="#" onclick="copyCmd('git clone https://github.com/yourusername/observability-stack.git')">Copy clone</a>
+              </div>
+            </article>
+
+            <article class="project">
+              <h3>4. Cost Optimization Toolkit</h3>
+              <div class="meta">Scripts and IaC that schedule spot instances, rightsizing reports, and automated tagging.</div>
+              <div class="tech-list"><span class="tech">AWS</span><span class="tech">Python</span></div>
+              <div style="margin-top:10px">
+                <a class="btn btn-primary" href="https://github.com/yourusername/cost-toolkit" target="_blank">View on GitHub</a>
+                <a class="btn btn-ghost" href="#" onclick="copyCmd('git clone https://github.com/yourusername/cost-toolkit.git')">Copy clone</a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="experience" class="card" style="margin-top:18px">
+          <h2 style="margin-top:0">Experience</h2>
+          <div style="margin-top:8px">
+            <h3 style="margin:0">Assistant Manager — DevOps at Vodafone Intelligent Solutions India</h3>
+            <p class="small">Worked on microservices observability, alerting, GitHub Actions, and AWS Lambda automation. Focus on reducing P1/P2 incidents and improving CRQ success rates.</p>
+          </div>
+          <div style="margin-top:12px">
+            <h3 style="margin:0">Previous — DevOps Engineer at XYZ</h3>
+            <p class="small">Built CI/CD and IaC for distributed services, introduced monitoring and runbooks that reduced mean time to recovery.</p>
+          </div>
+        </section>
+
+      </main>
+
+      <aside class="sidebar">
+        <div class="card section">
+          <h3 style="margin:0 0 6px">Contact & Resume</h3>
+          <p class="small">Email: <strong>you@example.com</strong></p>
+          <p class="small">Location: Pune, India</p>
+          <a class="btn btn-primary" href="/resume.pdf" download>Download Resume</a>
+        </div>
+
+        <div class="card section">
+          <h4 style="margin:0 0 6px">Tech & Tools</h4>
+          <div class="tech-list">
+            <span class="tech">AWS</span>
+            <span class="tech">GCP</span>
+            <span class="tech">Terraform</span>
+            <span class="tech">Helm</span>
+            <span class="tech">Kubernetes</span>
+            <span class="tech">Docker</span>
+            <span class="tech">Git</span>
+            <span class="tech">GitHub Actions</span>
+          </div>
+        </div>
+
+        <div class="card section">
+          <h4 style="margin:0 0 6px">Quick GitHub Pages</h4>
+          <p class="small">To publish this page on GitHub Pages:</p>
+          <pre class="cmd">1. git init
+2. git add .
+3. git commit -m "Add portfolio"
+4. git branch -M main
+5. gh repo create yourusername/yourusername.github.io --public --source=.
+6. git push -u origin main
+(Or push to any repo and enable Settings → Pages)</pre>
+        </div>
+
+        <div class="card section contact" id="contact">
+          <h4 style="margin:0 0 6px">Message me</h4>
+          <form onsubmit="event.preventDefault(); sendMail();">
+            <input id="name" placeholder="Your name" required />
+            <input id="email" placeholder="Your email" required style="margin-top:8px" />
+            <textarea id="message" placeholder="Message" rows="4" style="margin-top:8px" required></textarea>
+            <div style="margin-top:10px"><button class="btn btn-primary" type="submit">Send (opens mail)</button></div>
+          </form>
+        </div>
+      </aside>
+    </div>
+
+    <footer>
+      Built with ❤️ — Deploy on GitHub Pages • Last updated: Dec 1, 2025
+    </footer>
+  </div>
+
+  <script>
+    function copyCmd(text){
+      navigator.clipboard?.writeText(text).then(()=>alert('Copied to clipboard'))
+    }
+    function sendMail(){
+      const name=document.getElementById('name').value;
+      const email=document.getElementById('email').value;
+      const msg=document.getElementById('message').value;
+      const subject=encodeURIComponent('Portfolio contact from '+name);
+      const body=encodeURIComponent('Name: '+name+'\nEmail: '+email+'\n\n'+msg);
+      window.location.href='mailto:you@example.com?subject='+subject+'&body='+body;
+    }
+  </script>
+</body>
+</html>
