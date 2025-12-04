@@ -23,6 +23,7 @@
         body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; transition: all 0.4s ease; }
         html { scroll-behavior: smooth; }
 
+        /* Navigation */
         nav { position: fixed; top: 0; left: 0; right: 0; background: var(--card); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); z-index: 1000; padding: 1.2rem 0; }
         .nav-container { max-width: 1400px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
         .logo { font-size: 1.8rem; font-weight: 900; background: var(--gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
@@ -30,6 +31,7 @@
         .nav-links a:hover, .nav-links a.active { background: rgba(99,102,241,0.3); color: white; }
         .theme-toggle { background: var(--glass); border: 1px solid var(--border); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.3rem; }
 
+        /* Hero */
         .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 2rem; position: relative; }
         .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 30% 70%, rgba(99,102,241,0.15), transparent 70%); }
         .hero h1 { font-size: clamp(4.5rem, 10vw, 9rem); font-weight: 900; background: var(--gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; animation: fadeInUp 1.2s ease; }
@@ -37,17 +39,22 @@
         .typing { font-size: 2rem; color: var(--accent); height: 70px; animation: fadeInUp 1.2s ease 0.6s both; }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
 
-        .about { padding: 8rem 2rem 6rem; background: rgba(10,14,23,0.6); }
-        .about-container { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; }
-        .profile-card { background: var(--card); backdrop-filter: blur(20px); border: 1px solid var(--border); border-radius: 32px; padding: 3rem 2rem; text-align: center; }
-        .profile-img { width: 180px; height: 180px; border-radius: 50%; border: 5px solid var(--primary); object-fit: cover; margin-bottom: 1.5rem; }
-        .profile-name { font-size: 2.2rem; font-weight: 700; }
-        .profile-title { color: var(--accent); font-size: 1.3rem; font-weight: 600; margin-bottom: 1rem; }
-        .profile-location { color: var(--text-light); font-size: 1.1rem; margin-bottom: 2rem; }
-        .social-links a { width: 50px; height: 50px; background: var(--gradient); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; color: white; margin: 0 0.5rem; font-size: 1.3rem; }
-        .bio-text { background: var(--card); backdrop-filter: blur(20px); border: 1px solid var(--border); border-radius: 24px; padding: 2.5rem; color: var(--text-light); font-size: 1.1rem; line-height: 1.9; }
+        /* Experience Section - EXACTLY like Puneeth */
+        .experience { padding: 10rem 2rem 8rem; text-align: center; }
+        .experience h1 { font-size: 5.5rem; font-weight: 900; margin-bottom: 1rem; }
+        .experience h1 span { background: var(--gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+        .experience p { font-size: 1.4rem; color: var(--text-light); max-width: 800px; margin: 0 auto 5rem; }
+        .exp-card { background: var(--card); backdrop-filter: blur(20px); border: 1px solid var(--border); border-radius: 32px; padding: 2.5rem; max-width: 900px; margin: 0 auto 3rem; text-align: left; display: flex; gap: 2rem; align-items: flex-start; }
+        .exp-icon { width: 80px; height: 80px; background: var(--gradient); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: white; flex-shrink: 0; }
+        .exp-content h3 { font-size: 1.6rem; margin-bottom: 0.5rem; }
+        .exp-content h4 { color: var(--accent); font-size: 1.3rem; margin-bottom: 0.5rem; }
+        .exp-content .date { color: var(--text-light); font-size: 1rem; margin-bottom: 1rem; }
+        .exp-content p { color: var(--text-light); line-height: 1.8; }
+        .exp-tags { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem; }
+        .exp-tag { background: rgba(99,102,241,0.2); padding: 0.6rem 1.2rem; border-radius: 50px; font-size: 0.9rem; display: flex; align-items: center; gap: 0.5rem; }
 
-        .tools { padding: 8rem 2rem; }
+        /* Tools, Awards, Contact - Already Perfect */
+        .tools, .awards, .contact { padding: 8rem 2rem; }
         .tools-subtitle { text-align: center; color: var(--primary); font-weight: 600; font-size: 1.4rem; margin-bottom: 3rem; }
         .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1400px; margin: 0 auto; }
         .tool-card { background: var(--card); backdrop-filter: blur(20px); border: 1px solid var(--border); border-radius: 24px; padding: 2rem; }
@@ -56,10 +63,9 @@
         .tool-tags { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 0.8rem; }
         .tool-tag { background: rgba(99,102,241,0.15); padding: 0.6rem 1rem; border-radius: 12px; font-size: 0.9rem; text-align: center; }
 
-        .awards { padding: 8rem 2rem; text-align: center; }
-        .awards h2 { font-size: 5rem; font-weight: 900; margin-bottom: 1rem; }
+        .awards h2 { font-size: 5rem; font-weight: 900; text-align: center; margin-bottom: 1rem; }
         .awards h2 span { background: var(--gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
-        .awards p { font-size: 1.3rem; color: var(--text-light); max-width: 700px; margin: 0 auto 4rem; }
+        .awards p { text-align: center; color: var(--text-light); max-width: 700px; margin: 0 auto 4rem; }
         .awards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; }
         .award-card { background: var(--card); backdrop-filter: blur(20px); border: 1px solid var(--border); border-radius: 28px; padding: 2.5rem; text-align: center; position: relative; overflow: hidden; }
         .award-year { font-size: 8rem; font-weight: 900; opacity: 0.1; position: absolute; top: -20px; right: -20px; }
@@ -68,7 +74,7 @@
         .award-card p { color: var(--text-light); margin-bottom: 1.5rem; }
         .award-badge { display: inline-block; padding: 0.6rem 1.5rem; background: linear-gradient(135deg, #10b981, #059669); color: white; border-radius: 50px; font-weight: 600; }
 
-        .contact { padding: 10rem 2rem; text-align: center; background: #0a0e17; }
+        .contact { text-align: center; background: #0a0e17; }
         .contact-btn { display: inline-block; background: rgba(99,102,241,0.2); color: var(--primary); padding: 0.8rem 2rem; border-radius: 50px; font-weight: 600; margin-bottom: 3rem; text-decoration: none; }
         .contact h1 { font-size: 5.5rem; font-weight: 900; margin-bottom: 1rem; }
         .contact h1 span { background: var(--gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
@@ -78,17 +84,18 @@
         .contact-icon { width: 80px; height: 80px; background: var(--gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem; color: white; }
         .contact-card a { display: inline-block; margin-top: 1rem; padding: 0.8rem 1.8rem; background: var(--gradient); color: white; border-radius: 50px; text-decoration: none; font-weight: 600; }
 
-        @media (max-width: 992px) { .about-container { grid-template-columns: 1fr; } }
+        @media (max-width: 768px) { .exp-card { flex-direction: column; text-align: center; } .exp-icon { margin: 0 auto 1rem; } }
     </style>
 </head>
 <body>
 
+    <!-- Navigation -->
     <nav>
         <div class="nav-container">
             <div class="logo">Raj Kumar Yadav</div>
             <div class="nav-links">
                 <a href="#hero" class="active">Home</a>
-                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
                 <a href="#tools">Skills</a>
                 <a href="#awards">Awards</a>
                 <a href="#contact">Contact</a>
@@ -97,6 +104,7 @@
         </div>
     </nav>
 
+    <!-- Hero -->
     <section id="hero" class="hero">
         <div>
             <h1>Raj Kumar Yadav</h1>
@@ -105,25 +113,39 @@
         </div>
     </section>
 
-    <section id="about" class="about">
-        <div class="about-container">
-            <div class="profile-card">
-                <img src="profile.jpg" alt="Raj Kumar Yadav" class="profile-img">
-                <h2 class="profile-name">Raj Kumar Yadav</h2>
-                <p class="profile-title">Assistant Manager (DevOps & Cloud)</p>
-                <p class="profile-location">Pune, India</p>
-                <div class="social-links">
-                    <a href="mailto:raj.jnvm2000@gmail.com"><i class="fas fa-envelope"></i></a>
-                    <a href="https://linkedin.com/in/rajkumaryadav99" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/RAJ5734" target="_blank"><i class="fab fa-github"></i></a>
+    <!-- Experience Section - EXACTLY like Puneeth -->
+    <section id="experience" class="experience">
+        <h1>Building the future<br><span>one deployment at a time</span></h1>
+        <p>4+ years of transforming infrastructure and enabling teams to ship better software faster.</p>
+
+        <!-- Current Role -->
+        <div class="exp-card">
+            <div class="exp-icon"><i class="fas fa-briefcase"></i></div>
+            <div class="exp-content">
+                <h3>Assistant Manager (DevOps & Cloud)</h3>
+                <h4>Vodafone Intelligent Solutions (_VOIS) • Pune, India</h4>
+                <div class="date">June 2022 – Present</div>
+                <p>Complete DevOps lifecycle implementation from code-checkout to delivery. Led Azure DevOps to AWS migration, Jenkins to GitHub Actions, SVN to Git, and ArgoCD GitOps adoption. Designed branching strategies, created Helm charts, Dynatrace dashboards & alerts.</p>
+                <div class="exp-tags">
+                    <div class="exp-tag"><i class="fas fa-code-branch"></i> GitOps & ArgoCD</div>
+                    <div class="exp-tag"><i class="fas fa-robot"></i> Automation</div>
+                    <div class="exp-tag"><i class="fas fa-chart-area"></i> Observability</div>
                 </div>
-                <a href="Rajkumaryadav_Devops_resume.pdf" download style="margin-top:2rem;display:inline-block;padding:1rem 2rem;background:var(--gradient);color:white;border-radius:50px;text-decoration:none;font-weight:600;">
-                    Download Resume
-                </a>
             </div>
-            <div>
-                <div class="bio-text">
-                    Dedicated and results-driven DevOps Engineer with 4+ years of experience. Led complete DevOps lifecycle implementation, Jenkins to GitHub Actions migration, ArgoCD adoption, and Dynatrace observability platform at Vodafone _VOIS.
+        </div>
+
+        <!-- Previous Role -->
+        <div class="exp-card">
+            <div class="exp-icon"><i class="fas fa-laptop-code"></i></div>
+            <div class="exp-content">
+                <h3>Jr. DevOps Engineer</h3>
+                <h4>Cassini Technology Pvt. Ltd.</h4>
+                <div class="date">May 2021 – May 2022</div>
+                <p>Version control & monitoring for microservices. Created CI/CD pipelines, Splunk dashboards, and collaborated with security teams to implement vulnerability scanning and secure application releases.</p>
+                <div class="exp-tags">
+                    <div class="exp-tag"><i class="fas fa-shield-alt"></i> Security</div>
+                    <div class="exp-tag"><i class="fas fa-cogs"></i> CI/CD</div>
+                    <div class="exp-tag"><i class="fas fa-search"></i> Monitoring</div>
                 </div>
             </div>
         </div>
@@ -161,7 +183,7 @@
         </div>
     </section>
 
-    <!-- Awards & Certifications (NOW PERFECT) -->
+    <!-- Awards & Certifications -->
     <section id="awards" class="awards">
         <h2>Awards and <span>achievements</span></h2>
         <p>Recognition for excellence in automation, leadership, and knowledge sharing.</p>
@@ -170,38 +192,36 @@
                 <div class="award-year">2023</div>
                 <div class="award-icon"><i class="fas fa-star"></i></div>
                 <h3>Star Award 2023</h3>
-                <p>Excellence in Jenkins to GitHub Actions migration & pipeline optimization</p>
+                <p>Jenkins to GitHub Actions migration & pipeline optimization</p>
                 <div class="award-badge">Automation Leader</div>
             </div>
             <div class="award-card">
                 <div class="award-year">2024</div>
                 <div class="award-icon"><i class="fas fa-trophy"></i></div>
                 <h3>Star Award 2024</h3>
-                <p>Leadership in ArgoCD GitOps adoption across teams</p>
+                <p>ArgoCD GitOps adoption across teams</p>
                 <div class="award-badge">GitOps Champion</div>
             </div>
             <div class="award-card">
                 <div class="award-year">2025</div>
                 <div class="award-icon"><i class="fas fa-medal"></i></div>
                 <h3>Star Award 2025</h3>
-                <p>Building enterprise observability platform & mentoring juniors</p>
+                <p>Enterprise observability platform & mentoring</p>
                 <div class="award-badge">Innovation Leader</div>
             </div>
-
-            <!-- AWS Certifications with Live Badges -->
             <div class="award-card">
                 <div class="award-year">2024</div>
                 <div class="award-icon" style="background:#FF9900;"><i class="fab fa-aws"></i></div>
                 <h3>AWS Certified Cloud Practitioner</h3>
-                <p>Verified by Skillsoft Digital Badge</p>
-                <a href="https://skillsoft.digitalbadges-eu.skillsoft.com/0e3717e9-aabb-49fb-a8e0-a921de975cd3#acc.PHoJ4wa1" target="_blank" class="award-badge" style="background:#232F3E;">View Certificate</a>
+                <p>Skillsoft Digital Badge</p>
+                <a href="https://skillsoft.digitalbadges-eu.skillsoft.com/0e3717e9-aabb-49fb-a8e0-a921de975cd3#acc.PHoJ4wa1" target="_blank" class="award-badge" style="background:#232F3E;">View Badge</a>
             </div>
             <div class="award-card">
                 <div class="award-year">2024</div>
                 <div class="award-icon" style="background:#FF9900;"><i class="fab fa-aws"></i></div>
                 <h3>AWS Certified Developer – Associate</h3>
-                <p>Verified by Skillsoft Digital Badge</p>
-                <a href="https://skillsoft.digitalbadges-eu.skillsoft.com/0e3717e9-aabb-49fb-a8e0-a921de975cd3#acc.y7ezEPYb" target="_blank" class="award-badge" style="background:#232F3E;">View Certificate</a>
+                <p>Skillsoft Digital Badge</p>
+                <a href="https://skillsoft.digitalbadges-eu.skillsoft.com/0e3717e9-aabb-49fb-a8e0-a921de975cd3#acc.y7ezEPYb" target="_blank" class="award-badge" style="background:#232F3E;">View Badge</a>
             </div>
         </div>
     </section>
@@ -221,7 +241,7 @@
             <div class="contact-card">
                 <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
                 <h3>LinkedIn</h3>
-                <p>Connect with me</p>
+                <p>rajkumaryadav99</p>
                 <a href="https://linkedin.com/in/rajkumaryadav99" target="_blank">Connect on LinkedIn</a>
             </div>
             <div class="contact-card">
@@ -246,7 +266,7 @@
 
         window.addEventListener('scroll', () => {
             let current = 'hero';
-            ['hero','about','tools','awards','contact'].forEach(id => {
+            ['hero','experience','tools','awards','contact'].forEach(id => {
                 const el = document.getElementById(id);
                 if (el && el.getBoundingClientRect().top <= 120) current = id;
             });
