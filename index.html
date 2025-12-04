@@ -1,198 +1,220 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Raj Kumar Yadav - Devops Engineer </title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raj Kumar Yadav - DevOps & Cloud Engineer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #2563eb;
-            --dark: #1f2937;
-            --light: #f8fafc;
-            --gray: #64748b;
+            --bg: #0f172a;
+            --card: rgba(30, 41, 59, 0.7);
+            --text: #f1f5f9;
+            --text-light: #94a3b8;
+            --primary: #3b82f6;
+            --accent: #8b5cf6;
+            --border: rgba(255,255,255,0.1);
+            --glass: rgba(255,255,255,0.05);
+        }
+        [data-theme="light"] {
+            --bg: #f8fafc;
+            --card: rgba(255,255,255,0.9);
+            --text: #0f172a;
+            --text-light: #475569;
+            --primary: #3b82f6;
+            --accent: #8b5cf6;
+            --border: rgba(0,0,0,0.1);
+            --glass: rgba(255,255,255,0.8);
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: var(--light);
-            color: var(--dark);
-            line-height: 1.6;
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
         }
+        html { scroll-behavior: smooth; }
 
-        /* Navigation Bar */
+        /* Nav */
         nav {
             position: fixed;
-            top: 0;
-            width: 100%;
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            top: 0; left: 0; right: 0;
+            background: var(--card);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
             z-index: 1000;
-            padding: 15px 0;
+            padding: 1rem 0;
         }
         .nav-container {
-            max-width: 1100px;
+            max-width: 1300px;
             margin: 0 auto;
+            padding: 0 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 20px;
         }
         .logo {
-            font-weight: 700;
-            font-size: 1.3rem;
-            color: var(--primary);
-        }
-        .nav-links {
-            display: flex;
-            gap: 25px;
+            font-weight: 800;
+            font-size: 1.6rem;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         .nav-links a {
+            margin: 0 1.5rem;
             text-decoration: none;
-            color: var(--dark);
+            color: var(--text);
             font-weight: 500;
-            transition: color 0.3s;
+            position: relative;
         }
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-        .mobile-menu {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* Main Content */
-        .container {
-            max-width: 1100px;
-            margin: 100px auto 50px;
-            padding: 0 20px;
-        }
-
-        header {
-            text-align: center;
-            padding: 40px 20px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-        }
-        header h1 {
-            font-size: 2.8rem;
-            margin-bottom: 8px;
-        }
-        header h2 {
-            color: var(--primary);
-            font-size: 1.4rem;
-            margin-bottom: 20px;
-        }
-        .contact-info {
+        .nav-links a:hover { color: var(--primary); }
+        .theme-toggle {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            width: 50px; height: 50px;
+            border-radius: 50%;
             display: flex;
-            flex-wrap: wrap;
+            align-items: center;
             justify-content: center;
-            gap: 20px;
-            font-size: 1rem;
-            color: var(--gray);
-            margin-bottom: 20px;
+            cursor: pointer;
+            font-size: 1.3rem;
         }
-        .contact-info a { color: var(--primary); text-decoration: none; }
-        .contact-info i { margin-right: 8px; color: var(--primary); }
 
-        .download-btn {
-            background: var(--primary);
-            color: white;
-            padding: 12px 28px;
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 2rem;
+        }
+        .hero h1 {
+            font-size: clamp(3.5rem, 8vw, 6rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, #60a5fa, #c084fc);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .typing {
+            font-size: 2rem;
+            color: var(--text-light);
+            margin: 1.5rem 0;
+            height: 60px;
+        }
+        .btn {
+            padding: 1rem 2.2rem;
+            margin: 1rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
             display: inline-block;
             transition: all 0.3s;
         }
-        .download-btn:hover {
-            background: #1d4ed8;
-            transform: translateY(-2px);
+        .btn-primary {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+        }
+        .btn-primary:hover { transform: translateY(-4px); box-shadow: 0 15px 30px rgba(59,130,246,0.4); }
+
+        /* Section */
+        section { padding: 6rem 2rem; }
+        .container { max-width: 1300px; margin: 0 auto; text-align: center; }
+        h2 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 4rem;
+            background: linear-gradient(90deg, #60a5fa, #c084fc);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .summary {
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            text-align: center;
-            font-size: 1.1rem;
-            margin-bottom: 40px;
-        }
-
-        .main-content {
+        /* Achievements - Exactly like Puneeth */
+        .achievements-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
         }
-        section {
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        .achievement-card {
+            background: var(--card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 2rem;
+            text-align: left;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
         }
-        section h3 {
-            font-size: 1.5rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-            border-bottom: 3px solid var(--primary);
-            display: inline-block;
-            padding-bottom: 5px;
+        .achievement-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
-
-        .job, .edu { margin-bottom: 20px; }
-        .job h4, .edu h4 { font-size: 1.2rem; margin-bottom: 5px; }
-        .job span, .edu span {
-            display: block;
+        .year {
+            font-size: 5rem;
+            font-weight: 800;
+            opacity: 0.1;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            pointer-events: none;
+        }
+        .award-badge {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+        .badge-star { background: linear-gradient(135deg, #f59e0b, #ef4444); }
+        .badge-trophy { background: linear-gradient(135deg, #10b981, #059669); }
+        .award-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin: 1rem 0;
+            color: var(--text);
+        }
+        .award-desc {
+            color: var(--text-light);
             font-size: 0.95rem;
-            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        .award-tag {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
             font-weight: 600;
         }
 
+        /* Other sections (Skills, Experience, etc.) */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
-            gap: 12px;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 1.2rem;
+            margin-top: 2rem;
         }
         .skill {
-            background: #eff6ff;
-            color: var(--primary);
-            padding: 10px;
-            border-radius: 8px;
-            text-align: center;
-            font-weight: 500;
-            border: 1px solid #bfdbfe;
-        }
-
-        .project-demo img {
-            width: 100%;
-            border-radius: 10px;
-            margin: 15px 0;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px;
-            color: var(--gray);
-            font-size: 0.95rem;
-            margin-top: 50px;
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .mobile-menu { display: block; }
-            .main-content { grid-template-columns: 1fr; }
-            header h1 { font-size: 2.2rem; }
-            .contact-info { flex-direction: column; align-items: center; }
-        }
-        @media (max-width: 480px) {
-            .container { padding: 0 15px; margin-top: 80px; }
-            section { padding: 20px; }
+            background: var(--card);
+            padding: 1.2rem;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            font-weight: 600;
+            backdrop-filter: blur(10px);
         }
     </style>
 </head>
@@ -203,124 +225,137 @@
         <div class="nav-container">
             <div class="logo">Raj Kumar Yadav</div>
             <div class="nav-links">
-                <a href="#summary">Summary</a>
-                <a href="#experience">Experience</a>
+                <a href="#home">Home</a>
                 <a href="#skills">Skills</a>
-                <a href="#projects">Projects</a>
-                <a href="#education">Education</a>
-                <a href="#achievements">Achievements</a>
+                <a href="#experience">Experience</a>
+                <a href="#achievements">Awards</a>
+                <a href="#contact">Contact</a>
             </div>
-            <div class="mobile-menu">
-                <i class="fas fa-bars"></i>
-            </div>
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <i class="fas fa-sun" id="theme-icon"></i>
+            </button>
         </div>
     </nav>
 
-    <div class="container">
-
-        <header>
+    <!-- Hero -->
+    <section id="home" class="hero">
+        <div>
             <h1>Raj Kumar Yadav</h1>
-            <h2>Assistant Manager Devops Engineer </h2>
-            <div class="contact-info">
-                <div><i class="fas fa-envelope"></i> raj.jnvm2000@gmail.com</div>
-                <div><i class="fas fa-phone"></i> +91 7007252608</div>
-                <div><i class="fas fa-map-marker-alt"></i> Pune, India</div>
-                <div><a href="https://linkedin.com/in/rajkumaryadav99" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></div>
-                <div><a href="https://github.com/RAJ5734" target="_blank"><i class="fab fa-github"></i> GitHub</a></div>
+            <div class="typing" id="typing"></div>
+            <p style="max-width: 700px; margin: 2rem auto; color: var(--text-light);">
+                Assistant Manager (DevOps & Cloud) at Vodafone _VOIS | AWS • Kubernetes • Jenkins • Terraform
+            </p>
+            <div>
+                <a href="#achievements" class="btn btn-primary">View Achievements</a>
+                <a href="Rajkumaryadav_Devops_resume.pdf" download class="btn" style="border: 2px solid #3b82f6; color: #3b82f6;">
+                    Download Resume
+                </a>
             </div>
-            <a href="Rajkumaryadav_Devops_resume.pdf" download="Raj_Kumar_Yadav_DevOps_Resume.pdf" class="download-btn">
-                Download Resume (PDF)
-            </a>
-        </header>
-
-        <div id="summary" class="summary">
-            Dedicated and results-driven DevOps Engineer with 4+ years of experience. Proficient in automating software development and deployment processes, and optimizing system performance. Skilled in CI/CD, Infrastructure as Code (IaC), containerization, Kubernetes, and cloud technologies (AWS & Azure).
         </div>
+    </section>
 
-        <div class="main-content">
+    <!-- Achievements - EXACTLY like Puneeth -->
+    <section id="achievements">
+        <div class="container">
+            <h2>Awards and Achievements</h2>
+            <p style="color: var(--text-light); font-size: 1.2rem; max-width: 800px; margin: 0 auto 4rem;">
+                Recognition for excellence in automation, collaboration, and knowledge sharing at Vodafone Intelligent Solutions.
+            </p>
 
-            <section id="experience">
-                <h3>Work Experience</h3>
-                <div class="job">
-                    <h4>Assistant Manager (DevOps & Cloud)</h4>
-                    <span>Vodafone Intelligent Solutions (_VOIS) • 06/2022 – Present</span>
-                    <p>Pune, India</p>
-                    <ul>
-                        <li>Complete DevOps lifecycle implementation (Azure DevOps, AWS DevOps, Jenkins + Octopus)</li>
-                        <li>Migrated SVN/TFS to Git & AWS CodeCommit</li>
-                        <li>Designed branching strategies & end-to-end CI/CD pipelines</li>
-                        <li>Migrating Jenkins to GitHub Actions</li>
-                        <li>Created Helm charts & integrated ArgoCD (GitOps)</li>
-                        <li>Built Dynatrace dashboards and alerts</li>
-                    </ul>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <div class="year">2023</div>
+                    <div class="award-badge badge-star">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="award-title">Star Award - 1st Time</div>
+                    <p class="award-desc">Recognized for outstanding contribution in automating deployment pipelines and reducing manual efforts across multiple projects.</p>
+                    <span class="award-tag">Excellence in Automation</span>
                 </div>
-                <div class="job">
-                    <h4>Jr. DevOps Engineer</h4>
-                    <span>Cassini Technology Pvt. Ltd. • 05/2021 – 05/2022</span>
-                    <ul>
-                        <li>Built CI/CD pipelines and Splunk dashboards</li>
-                        <li>Implemented monitoring for microservices</li>
-                    </ul>
+
+                <div class="achievement-card">
+                    <div class="year">2024</div>
+                    <div class="award-badge badge-trophy">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="award-title">Star Award - 2nd Time</div>
+                    <p class="award-desc">Honored for leading the Jenkins to GitHub Actions migration and implementing GitOps with ArgoCD across teams.</p>
+                    <span class="award-tag">Leadership & Innovation</span>
                 </div>
-            </section>
 
-            <section id="skills">
-                <h3>Skills</h3>
-                <div class="skills-grid">
-                    <div class="skill">AWS</div><div class="skill">Jenkins</div><div class="skill">Docker</div>
-                    <div class="skill">Kubernetes</div><div class="skill">EKS</div><div class="skill">GitHub Actions</div>
-                    <div class="skill">ArgoCD</div><div class="skill">Helm</div><div class="skill">Terraform</div>
-                    <div class="skill">Python</div><div class="skill">Dynatrace</div><div class="skill">Splunk</div>
-                    <div class="skill">Git</div><div class="skill">Linux</div><div class="skill">CloudFormation</div>
-                    <div class="skill">EC2 / Lambda</div>
-                    <div class="skill"> Lambda funcation </div>
-                    <div class="skill">Splunk </div>
-                    <div class="skill">Dynatrace </div>
+                <div class="achievement-card">
+                    <div class="year">2025</div>
+                    <div class="award-badge badge-star" style="background: linear-gradient(135deg, #8b5cf6, #ec4899);">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <div class="award-title">Star Award - 3rd Time</div>
+                    <p class="award-desc">Celebrated for building enterprise-grade observability with Dynatrace and mentoring juniors in cloud-native practices.</p>
+                    <span class="award-tag">Mentorship Excellence</span>
                 </div>
-            </section>
-
-            <section id="projects" class="project-demo">
-                <h3>Projects & DevOps Demo</h3>
-                <h4>Automated CI/CD Pipeline for Microservices</h4>
-                <ul>
-                    <li>Jenkins + GitHub Actions pipeline automation</li>
-                    <li>Docker containerization & Helm chart deployment</li>
-                    <li>ArgoCD GitOps + Dynatrace monitoring</li>
-                    <li>Security scanning (Trivy) in pipeline</li>
-                </ul>
-                <img src="https://miro.medium.com/v2/resize:fit:1015/1*rlPRYAfJ_aFOfoj52U7y2A.png" alt="CI/CD Pipeline">
-                <p style="margin-top:15px;"><a href="https://github.com/RAJ5734" target="_blank">View Full Code on GitHub</a></p>
-            </section>
-
-            <section id="education">
-                <h3>Education</h3>
-                <div class="edu">
-                    <h4>Bachelor of Engineering – Computer Science</h4>
-                    <span>Institute of Engineering and Technology, Agra</span>
-                    <p>2017 – 2021</p>
-                </div>
-            </section>
-
-            <section id="achievements">
-                <h3>Achievements & Certifications</h3>
-                <ul>
-                    <li>AWS Certified Cloud Practitioner</li>
-                    <li>AWS Certified Developer – Associate</li>
-                    <li>Received "Star Award" 3 times at Vodafone _VOIS</li>
-                </ul>
-            </section>
-
-            <section id="interests">
-                <h3>Interests</h3>
-                <p>Travel • Cloud Native • Automation • Open Source • Building Scalable Systems</p>
-            </section>
-
+            </div>
         </div>
+    </section>
 
-        <footer>
-            © 2025 Raj Kumar Yadav • DevOps & Cloud Engineer • Hosted on GitHub Pages
-        </footer>
-    </div>
+    <!-- Skills -->
+    <section id="skills" style="background: rgba(15,23,42,0.6);">
+        <div class="container">
+            <h2 style="color: white;">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill">AWS</div>
+                <div class="skill">Jenkins</div>
+                <div class="skill">Docker</div>
+                <div class="skill">Kubernetes</div>
+                <div class="skill">EKS</div>
+                <div class="skill">GitHub Actions</div>
+                <div class="skill">ArgoCD</div>
+                <div class="skill">Helm</div>
+                <div class="skill">Terraform</div>
+                <div class="skill">Python</div>
+                <div class="skill">Dynatrace</div>
+                <div class="skill">Splunk</div>
+                <div class="skill">Linux</div>
+                <div class="skill">CloudFormation</div>
+            </div>
+        </div>
+    </section>
 
+    <script>
+        // Typing Effect
+        const texts = ["DevOps Engineer", "Cloud Architect", "Automation Expert", "GitOps Practitioner"];
+        let i = 0, j = 0, forward = true;
+        const el = document.getElementById("typing");
+        setInterval(() => {
+            if (forward && j <= texts[i].length) {
+                el.textContent = texts[i].substring(0, j++) + "|";
+            } else if (!forward && j >= 0) {
+                el.textContent = texts[i].substring(0, j--) + "|";
+            } else if (j === texts[i].length) {
+                forward = false;
+                setTimeout(() => {}, 1200);
+            } else if (j === 0) {
+                forward = true;
+                i = (i + 1) % texts.length;
+            }
+        }, 120);
+
+        // Theme Toggle
+        function toggleTheme() {
+            const root = document.documentElement;
+            const icon = document.getElementById("theme-icon");
+            if (root.getAttribute("data-theme") === "dark") {
+                root.setAttribute("data-theme", "light");
+                icon.classList.replace("fa-sun", "fa-moon");
+                localStorage.setItem("theme", "light");
+            } else {
+                root.setAttribute("data-theme", "dark");
+                icon.classList.replace("fa-moon", "fa-sun");
+                localStorage.setItem("theme", "dark");
+            }
+        }
+        if (localStorage.getItem("theme") === "light") {
+            document.documentElement.setAttribute("data-theme", "light");
+            document.getElementById("theme-icon").classList.replace("fa-sun", "fa-moon");
+        }
+    </script>
 </body>
 </html>
