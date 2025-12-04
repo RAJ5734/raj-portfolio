@@ -9,7 +9,7 @@
     <style>
         :root {
             --bg: #0a0e17;
-            --card: rgba(25, 30, 45, 0.85);
+            --card: rgba(25, 30, 45, 0.9);
             --text: #e2e8f0;
             --text-light: #94a3b8;
             --primary: #6366f1;
@@ -86,160 +86,210 @@
             font-size: 1.3rem;
         }
 
-        /* Hero / About Section - Exactly like Puneeth */
-        .about {
+        /* Hero Landing Animation */
+        .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding: 8rem 2rem 4rem;
+            justify-content: center;
+            text-align: center;
+            padding: 0 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 30% 70%, rgba(99,102,241,0.15), transparent 70%);
+        }
+        .hero h1 {
+            font-size: clamp(4.5rem, 10vw, 9rem);
+            font-weight: 900;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1.2s ease;
+        }
+        .hero h2 {
+            font-size: 2.8rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            animation: fadeInUp 1.2s ease 0.3s both;
+        }
+        .typing {
+            font-size: 2rem;
+            color: var(--accent);
+            height: 70px;
+            animation: fadeInUp 1.2s ease 0.6s both;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* About Section - With Expertise Grid */
+        .about {
+            padding: 8rem 2rem 6rem;
+            background: rgba(10, 14, 23, 0.6);
         }
         .about-container {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr 2fr;
-            gap: 3rem;
+            gap: 4rem;
         }
         .profile-card {
             background: var(--card);
             backdrop-filter: blur(20px);
             border: 1px solid var(--border);
-            border-radius: 28px;
-            padding: 2.5rem;
+            border-radius: 32px;
+            padding: 3rem 2rem;
             text-align: center;
         }
         .profile-img {
-            width: 160px;
-            height: 160px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
-            border: 4px solid var(--primary);
+            border: 5px solid var(--primary);
             object-fit: cover;
             margin-bottom: 1.5rem;
         }
         .profile-name {
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
         }
         .profile-title {
             color: var(--accent);
+            font-size: 1.3rem;
             font-weight: 600;
             margin-bottom: 1rem;
         }
         .profile-location {
             color: var(--text-light);
             font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-        }
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
+            margin-bottom: 2rem;
         }
         .social-links a {
-            width: 45px; height: 45px;
+            width: 50px; height: 50px;
             background: var(--gradient);
             border-radius: 50%;
-            display: flex;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.2rem;
+            margin: 0 0.5rem;
+            font-size: 1.3rem;
         }
 
-        .bio-card {
+        .bio-and-expertise {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+        .bio-text {
             background: var(--card);
             backdrop-filter: blur(20px);
             border: 1px solid var(--border);
-            border-radius: 28px;
-            padding: 3rem;
-        }
-        .bio-text {
+            border-radius: 24px;
+            padding: 2.5rem;
             color: var(--text-light);
             font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 2rem;
+            line-height: 1.9;
         }
+
+        /* Expertise Grid - From Puneeth */
+        .expertise-title {
+            text-align: center;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--primary);
+            background: rgba(99,102,241,0.2);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        .expertise-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+        }
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.8rem;
+        }
+        .expertise-card {
+            background: var(--card);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 1.8rem;
+            transition: transform 0.3s;
+        }
+        .expertise-card:hover {
+            transform: translateY(-8px);
+        }
+        .expertise-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+        .expertise-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            color: var(--text);
+        }
+        .expertise-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
         .download-btn {
             display: inline-block;
-            padding: 1rem 2rem;
+            margin-top: 2rem;
+            padding: 1.2rem 2.5rem;
             background: var(--gradient);
             color: white;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-        }
-
-        /* Achievements Section - Restored & Beautiful */
-        .achievements {
-            padding: 6rem 2rem;
-            background: rgba(10, 14, 23, 0.6);
-        }
-        .achievements-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-        }
-        .achievement-card {
-            background: var(--card);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--border);
-            border-radius: 24px;
-            padding: 2rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .achievement-card .year {
-            font-size: 6rem;
-            font-weight: 900;
-            opacity: 0.1;
-            position: absolute;
-            top: 10px;
-            right: 15px;
-        }
-        .award-badge {
-            width: 80px; height: 80px;
-            background: linear-gradient(135deg, #f59e0b, #ef4444);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            color: white;
-            font-size: 2rem;
-        }
-        .award-title {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin: 1rem 0;
-        }
-        .award-desc {
-            color: var(--text-light);
-            font-size: 0.95rem;
+            font-size: 1.1rem;
         }
 
         /* Responsive */
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
             .about-container { grid-template-columns: 1fr; }
-            .nav-links a { margin: 0.5rem; font-size: 0.9rem; }
+            .expertise-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .expertise-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation - Fully Working -->
+    <!-- Navigation -->
     <nav>
         <div class="nav-container">
             <div class="logo">Raj Kumar Yadav</div>
             <div class="nav-links">
-                <a href="#about" class="active">About</a>
-                <a href="#experience">Experience</a>
+                <a href="#hero" class="active">Home</a>
+                <a href="#about">About</a>
                 <a href="#skills">Skills</a>
-                <a href="#projects">Projects</a>
-                <a href="#achievements">Achievements</a>
+                <a href="#achievements">Awards</a>
                 <a href="#contact">Contact</a>
             </div>
             <button class="theme-toggle" onclick="toggleTheme()">
@@ -248,11 +298,21 @@
         </div>
     </nav>
 
-    <!-- About Section - 100% Match to Puneeth's Design -->
+    <!-- Hero Landing Animation -->
+    <section id="hero" class="hero">
+        <div>
+            <h1>Raj Kumar Yadav</h1>
+            <h2>DevOps & Cloud Engineer</h2>
+            <div class="typing" id="typing"></div>
+        </div>
+    </section>
+
+    <!-- About Section with Expertise Grid -->
     <section id="about" class="about">
         <div class="about-container">
+            <!-- Profile Card -->
             <div class="profile-card">
-                <img src="https://via.placeholder.com/160x160/6366f1/ffffff?text=Raj" alt="Raj Kumar Yadav" class="profile-img">
+                <img src="https://via.placeholder.com/180x180/6366f1/ffffff?text=RJY" alt="Raj Kumar Yadav" class="profile-img">
                 <h2 class="profile-name">Raj Kumar Yadav</h2>
                 <p class="profile-title">Assistant Manager (DevOps & Cloud)</p>
                 <p class="profile-location">Pune, India</p>
@@ -261,66 +321,129 @@
                     <a href="https://linkedin.com/in/rajkumaryadav99" target="_blank"><i class="fab fa-linkedin"></i></a>
                     <a href="https://github.com/RAJ5734" target="_blank"><i class="fab fa-github"></i></a>
                 </div>
-            </div>
-
-            <div class="bio-card">
-                <h2>DevOps Engineer</h2>
-                <p class="bio-text">
-                    Dedicated and results-driven DevOps Engineer with 4+ years of experience. Proficient in automating software development, deployment processes, and optimizing system performance. Skilled in CI/CD, Infrastructure as Code (IaC), containerization, and cloud technologies.
-                </p>
-                <p class="bio-text">
-                    Complete DevOps lifecycle implementation from code-checkout to delivery. Migration from SVN/TFS to Git & AWS CodeCommit. Designed branching strategies. Creation of pipelines in Jenkins and AWS DevOps. Work on migration Jenkins to GitHub Action. Created Helm chart for microservice. Created Dynatrace alerts and dashboard. ArgoCD integration.
-                </p>
-                <p class="bio-text">
-                    <strong>Education:</strong> Bachelor of Engineering in Computer Science and Engineering, Institute of Engineering and Technology, Agra (2017-2021)
-                </p>
                 <a href="Rajkumaryadav_Devops_resume.pdf" download class="download-btn">
                     Download Resume
                 </a>
             </div>
+
+            <!-- Bio + Technical Expertise Grid -->
+            <div class="bio-and-expertise">
+                <div class="bio-text">
+                    Dedicated and results-driven DevOps Engineer with 4+ years of experience. Proficient in automating software development, deployment processes, and optimizing system performance. Skilled in CI/CD, Infrastructure as Code (IaC), containerization, and cloud technologies. Seeking opportunities to contribute technical expertise to a dynamic DevOps team.
+                </div>
+
+                <div>
+                    <div class="expertise-title">Technical Expertise</div>
+                    <p class="expertise-subtitle">4+ years of hands-on DevOps experience across cloud platforms, automation, and enterprise delivery</p>
+
+                    <div class="expertise-grid">
+                        <div class="expertise-card">
+                            <div class="expertise-icon" style="background: linear-gradient(135deg, #a78bfa, #818cf8);"><i class="fas fa-code-branch"></i></div>
+                            <h4>CI/CD Pipelines</h4>
+                            <p>End-to-end pipeline design using Jenkins, GitHub Actions, AWS CodePipeline with automated testing & rollback</p>
+                        </div>
+                        <div class="expertise-card">
+                            <div class="expertise-icon" style="background: linear-gradient(135deg, #34d399, #10b981);"><i class="fas fa-cloud"></i></div>
+                            <h4>Cloud & Containerization</h4>
+                            <p>AWS (EC2, EKS, Lambda), Docker, Kubernetes, Helm charts, ECR, CloudFormation</p>
+                        </div>
+                        <div class="expertise-card">
+                            <div class="expertise-icon" style="background: linear-gradient(135deg, #f97316, #ef4444);"><i class="fas fa-shield-alt"></i></div>
+                            <h4>Security & Compliance</h4>
+                            <p>Secure pipeline design, secret management, IAM roles, compliance-ready deployments</p>
+                        </div>
+                        <div class="expertise-card">
+                            <div class="expertise-icon" style="background: linear-gradient(135deg, #8b5cf6, #ec4899);"><i class="fas fa-robot"></i></div>
+                            <h4>Infrastructure as Code</h4>
+                            <p>Terraform, CloudFormation, Helm — automated infra provisioning & drift detection</p>
+                        </div>
+                        <div class="expertise-card">
+                            <div class="expertise-icon" style="background: linear-gradient(135deg, #06b45309, #f59e0b);"><i class="fas fa-chart-area"></i></div>
+                            <h4>Observability</h4>
+                            <p>Dynatrace dashboards, alerts, Splunk queries, CloudWatch, Prometheus</p>
+                        </div>
+                        <div class="expertise-card">
+                            <div class="expertise-icon" style="background: linear-gradient(135deg, #06b6d4, #0ea5e9);"><i class="fas fa-users"></i></div>
+                            <h4>Team Leadership</h4>
+                            <p>Mentoring juniors, knowledge sharing, DevOps culture transformation</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Achievements Section - Restored & Stunning -->
-    <section id="achievements" class="achievements">
-        <div class="achievements-grid">
-            <div class="achievement-card">
-                <div class="year">2023</div>
-                <div class="award-badge"><i class="fas fa-star"></i></div>
-                <h3 class="award-title">Star Award</h3>
-                <p class="award-desc">Recognized for excellence in automation and pipeline optimization at Vodafone _VOIS</p>
+    <!-- Skills Section (Icons) -->
+    <section id="skills" style="padding:6rem 2rem;background:rgba(15,20,35,0.8);">
+        <div style="max-width:1200px;margin:0 auto;text-align:center;">
+            <h2 style="font-size:3.5rem;margin-bottom:3rem;background:var(--gradient);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;">Technical Skills</h2>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:2rem;">
+                <div style="background:var(--card);padding:2rem;border-radius:20px;"><i class="fab fa-aws" style="font-size:3rem;color:#f90;"></i><br><strong>AWS</strong></div>
+                <div style="background:var(--card);padding:2rem;border-radius:20px;"><i class="fas fa-tools" style="font-size:3rem;color:#f00;"></i><br><strong>Jenkins</strong></div>
+                <div style="background:var(--card);padding:2rem;border-radius:20px;"><i class="fab fa-docker" style="font-size:3rem;color:#0db7ed;"></i><br><strong>Docker</strong></div>
+                <div style="background:var(--card);padding:2rem;border-radius:20px;"><i class="fas fa-cubes" style="font-size:3rem;color:#326ce5;"></i><br><strong>Kubernetes</strong></div>
+                <div style="background:var(--card);padding:2rem;border-radius:20px;"><i class="fas fa-code" style="font-size:3rem;color:#f29111;"></i><br><strong>Terraform</strong></div>
+                <div style="background:var(--card);padding:2rem;border-radius:20px;"><i class="fas fa-eye" style="font-size:3rem;color:#00d4aa;"></i><br><strong>Dynatrace</strong></div>
             </div>
-            <div class="achievement-card">
-                <div class="year">2024</div>
-                <div class="award-badge"><i class="fas fa-star"></i></div>
-                <h3 class="award-title">Star Award</h3>
-                <p class="award-desc">Leadership in Jenkins to GitHub Actions migration and GitOps implementation</p>
-            </div>
-            <div class="achievement-card">
-                <div class="year">2025</div>
-                <div class="award-badge"><i class="fas fa-star"></i></div>
-                <h3 class="award-title">Star Award</h3>
-                <p class="award-desc">Excellence in observability with Dynatrace and mentoring juniors</p>
+        </div>
+    </section>
+
+    <!-- Achievements -->
+    <section id="achievements" style="padding:6rem 2rem;background:rgba(10,14,23,0.6);">
+        <div style="max-width:1200px;margin:0 auto;">
+            <h2 style="text-align:center;font-size:3.5rem;margin-bottom:4rem;background:var(--gradient);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;">Awards & Achievements</h2>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem;">
+                <div style="background:var(--card);backdrop-filter:blur(20px);border:1px solid var(--border);border-radius:24px;padding:2.5rem;text-align:center;position:relative;overflow:hidden;">
+                    <div style="font-size:6rem;font-weight:900;opacity:0.1;position:absolute;top:10px;right:15px;">2023</div>
+                    <div style="width:80px;height:80px;background:linear-gradient(135deg,#f59e0b,#ef4444);border-radius:50%;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;color:white;font-size:2.2rem;"><i class="fas fa-star"></i></div>
+                    <h3>Star Award 2023</h3>
+                    <p style="color:var(--text-light);">Excellence in automation & pipeline optimization</p>
+                </div>
+                <!-- Repeat for 2024, 2025 -->
+                <div style="background:var(--card);backdrop-filter:blur(20px);border:1px solid var(--border);border-radius:24px;padding:2.5rem;text-align:center;position:relative;overflow:hidden;">
+                    <div style="font-size:6rem;font-weight:900;opacity:0.1;position:absolute;top:10px;right:15px;">2024</div>
+                    <div style="width:80px;height:80px;background:linear-gradient(135deg,#10b981,#059669);border-radius:50%;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;color:white;font-size:2.2rem;"><i class="fas fa-trophy"></i></div>
+                    <h3>Star Award 2024</h3>
+                    <p style="color:var(--text-light);">Leadership in GitOps & ArgoCD adoption</p>
+                </div>
+                <div style="background:var(--card);backdrop-filter:blur(20px);border:1px solid var(--border);border-radius:24px;padding:2.5rem;text-align:center;position:relative;overflow:hidden;">
+                    <div style="font-size:6rem;font-weight:900;opacity:0.1;position:absolute;top:10px;right:15px;">2025</div>
+                    <div style="width:80px;height:80px;background:linear-gradient(135deg,#8b5cf6,#ec4899);border-radius:50%;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;color:white;font-size:2.2rem;"><i class="fas fa-medal"></i></div>
+                    <h3>Star Award 2025</h3>
+                    <p style="color:var(--text-light);">Excellence in observability & mentoring</p>
+                </div>
             </div>
         </div>
     </section>
 
     <script>
-        // Active Navigation Highlight
+        // Typing Effect
+        const texts = ["DevOps Engineer", "Cloud Specialist", "Automation Expert", "GitOps Practitioner"];
+        let i = 0, j = 0, forward = true;
+        const el = document.getElementById("typing");
+        setInterval(() => {
+            if (forward && j <= texts[i].length) {
+                el.textContent = texts[i].substring(0, j++) + "|";
+            } else if (!forward && j >= 0) {
+                el.textContent = texts[i].substring(0, j--) + "|";
+            } else if (j === texts[i].length) {
+                forward = false;
+            } else if (j === 0) {
+                forward = true;
+                i = (i + 1) % texts.length;
+            }
+        }, 120);
+
+        // Active Nav
         window.addEventListener('scroll', () => {
-            let current = '';
-            const sections = ['about', 'experience', 'skills', 'projects', 'achievements', 'contact'];
+            let current = 'hero';
+            const sections = ['hero', 'about', 'skills', 'achievements'];
             sections.forEach(section => {
-                const element = document.getElementById(section);
-                if (element && element.getBoundingClientRect().top <= 100) {
-                    current = section;
-                }
+                const el = document.getElementById(section);
+                if (el && el.getBoundingClientRect().top <= 100) current = section;
             });
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
+            document.querySelectorAll('.nav-links a').forEach(a => {
+                a.classList.toggle('active', a.getAttribute('href') === `#${current}`);
             });
         });
 
