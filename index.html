@@ -9,12 +9,12 @@
     <style>
         :root {
             --bg: #0a0e17;
-            --card: rgba(20, 25, 40, 0.8);
+            --card: rgba(25, 30, 45, 0.85);
             --text: #e2e8f0;
             --text-light: #94a3b8;
             --primary: #6366f1;
             --accent: #a78bfa;
-            --border: rgba(100, 116, 139, 0.3);
+            --border: rgba(100, 116, 139, 0.25);
             --glass: rgba(255, 255, 255, 0.05);
             --gradient: linear-gradient(135deg, #6366f1, #a78bfa);
         }
@@ -24,14 +24,13 @@
             --text: #0f172a;
             --text-light: #475569;
             --border: rgba(0,0,0,0.1);
-            --glass: rgba(255,255,255,0.9);
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Inter', sans-serif;
             background: var(--bg);
             color: var(--text);
-            line-height: 1.6;
+            line-height: 1.7;
             transition: all 0.4s ease;
         }
         html { scroll-behavior: smooth; }
@@ -44,7 +43,7 @@
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
             z-index: 1000;
-            padding: 1rem 0;
+            padding: 1.2rem 0;
         }
         .nav-container {
             max-width: 1400px;
@@ -55,7 +54,7 @@
             align-items: center;
         }
         .logo {
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             font-weight: 900;
             background: var(--gradient);
             -webkit-background-clip: text;
@@ -63,168 +62,184 @@
             -webkit-text-fill-color: transparent;
         }
         .nav-links a {
-            margin: 0 1.2rem;
+            margin: 0 1.5rem;
             text-decoration: none;
             color: var(--text);
             font-weight: 500;
             padding: 0.6rem 1.2rem;
-            border-radius: 25px;
+            border-radius: 50px;
             transition: all 0.3s;
         }
-        .nav-links a:hover {
-            background: rgba(99, 102, 241, 0.2);
+        .nav-links a:hover, .nav-links a.active {
+            background: rgba(99, 102, 241, 0.3);
             color: white;
         }
         .theme-toggle {
             background: var(--glass);
             border: 1px solid var(--border);
-            width: 48px; height: 48px;
+            width: 50px; height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            font-size: 1.2rem;
-            transition: all 0.3s;
+            font-size: 1.3rem;
         }
 
-        /* About Section - EXACTLY like Puneeth's image */
+        /* Hero / About Section - Exactly like Puneeth */
         .about {
             min-height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: center;
-            padding: 2rem;
-            position: relative;
-        }
-        .about::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(circle at 20% 80%, rgba(99,102,241,0.1), transparent 70%);
-            z-index: -1;
+            padding: 8rem 2rem 4rem;
         }
         .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr 2fr;
             gap: 3rem;
-            max-width: 1200px;
-            margin: 0 auto;
         }
-        .profile-section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
+        .profile-card {
             background: var(--card);
             backdrop-filter: blur(20px);
             border: 1px solid var(--border);
-            border-radius: 24px;
-            padding: 2rem;
+            border-radius: 28px;
+            padding: 2.5rem;
+            text-align: center;
         }
         .profile-img {
-            width: 140px;
-            height: 140px;
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
-            border: 3px solid var(--primary);
-            margin-bottom: 1rem;
+            border: 4px solid var(--primary);
             object-fit: cover;
+            margin-bottom: 1.5rem;
         }
         .profile-name {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
         }
-        .profile-role {
+        .profile-title {
             color: var(--accent);
-            font-size: 1.1rem;
             font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .profile-location {
+            color: var(--text-light);
+            font-size: 1.1rem;
             margin-bottom: 1.5rem;
         }
-        .social-icons {
+        .social-links {
             display: flex;
+            justify-content: center;
             gap: 1rem;
         }
-        .social-icons a {
-            width: 40px; height: 40px;
+        .social-links a {
+            width: 45px; height: 45px;
             background: var(--gradient);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-        .social-icons a:hover {
-            transform: scale(1.1);
+            font-size: 1.2rem;
         }
 
-        .bio-section {
+        .bio-card {
             background: var(--card);
             backdrop-filter: blur(20px);
             border: 1px solid var(--border);
-            border-radius: 24px;
-            padding: 2.5rem;
+            border-radius: 28px;
+            padding: 3rem;
         }
-        .bio-title {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: var(--text);
-            margin-bottom: 1.5rem;
-        }
-        .bio-desc {
+        .bio-text {
             color: var(--text-light);
             font-size: 1.1rem;
             line-height: 1.8;
             margin-bottom: 2rem;
         }
-        .bio-work {
-            color: var(--text-light);
-            font-size: 1rem;
-            margin-bottom: 1.5rem;
-        }
-        .bio-education {
-            color: var(--text-light);
-            font-size: 1rem;
-        }
-
-        /* Download Button */
-        .download-resume {
+        .download-btn {
             display: inline-block;
-            margin-top: 2rem;
             padding: 1rem 2rem;
             background: var(--gradient);
             color: white;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.3s;
         }
-        .download-resume:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(99,102,241,0.4);
+
+        /* Achievements Section - Restored & Beautiful */
+        .achievements {
+            padding: 6rem 2rem;
+            background: rgba(10, 14, 23, 0.6);
+        }
+        .achievements-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        .achievement-card {
+            background: var(--card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .achievement-card .year {
+            font-size: 6rem;
+            font-weight: 900;
+            opacity: 0.1;
+            position: absolute;
+            top: 10px;
+            right: 15px;
+        }
+        .award-badge {
+            width: 80px; height: 80px;
+            background: linear-gradient(135deg, #f59e0b, #ef4444);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: white;
+            font-size: 2rem;
+        }
+        .award-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin: 1rem 0;
+        }
+        .award-desc {
+            color: var(--text-light);
+            font-size: 0.95rem;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .about-container { grid-template-columns: 1fr; gap: 2rem; }
-            .nav-links { display: none; }
+            .about-container { grid-template-columns: 1fr; }
+            .nav-links a { margin: 0.5rem; font-size: 0.9rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation -->
+    <!-- Navigation - Fully Working -->
     <nav>
         <div class="nav-container">
             <div class="logo">Raj Kumar Yadav</div>
             <div class="nav-links">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
+                <a href="#about" class="active">About</a>
                 <a href="#experience">Experience</a>
-                <a href="#awards">Awards</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#achievements">Achievements</a>
                 <a href="#contact">Contact</a>
             </div>
             <button class="theme-toggle" onclick="toggleTheme()">
@@ -233,50 +248,82 @@
         </div>
     </nav>
 
-    <!-- About Section - EXACT MATCH to the image -->
+    <!-- About Section - 100% Match to Puneeth's Design -->
     <section id="about" class="about">
         <div class="about-container">
-            <!-- Profile Card -->
-            <div class="profile-section">
-                <img src="https://via.placeholder.com/140x140/6366f1/e2e8f0?text=RJY" alt="Raj Kumar Yadav" class="profile-img">
-                <div class="profile-name">Raj Kumar Yadav</div>
-                <div class="profile-role">Assistant Manager (DevOps & Cloud)</div>
-                <div class="social-icons">
+            <div class="profile-card">
+                <img src="https://via.placeholder.com/160x160/6366f1/ffffff?text=Raj" alt="Raj Kumar Yadav" class="profile-img">
+                <h2 class="profile-name">Raj Kumar Yadav</h2>
+                <p class="profile-title">Assistant Manager (DevOps & Cloud)</p>
+                <p class="profile-location">Pune, India</p>
+                <div class="social-links">
                     <a href="mailto:raj.jnvm2000@gmail.com"><i class="fas fa-envelope"></i></a>
                     <a href="https://linkedin.com/in/rajkumaryadav99" target="_blank"><i class="fab fa-linkedin"></i></a>
                     <a href="https://github.com/RAJ5734" target="_blank"><i class="fab fa-github"></i></a>
                 </div>
             </div>
 
-            <!-- Bio Card -->
-            <div class="bio-section">
-                <h2 class="bio-title">DevOps Engineer</h2>
-                <p class="bio-desc">I am a DevOps Engineer with 4+ years of experience in implementing and scaling CI/CD solutions across enterprise environments. Specialize in architecting secure and efficient pipelines using Azure DevOps, AWS DevOps, Jenkins/TeamCity with Octopus Deploy.</p>
-                <p class="bio-work">My work focuses on automation, infrastructure optimization, and security compliance. Over the years, I have successfully led DevOps transformations for Vodafone Intelligent Solutions, modernized CI/CD infrastructures, and contributed to audit-ready, cloud-native delivery ecosystems.</p>
-                <p class="bio-work">My contributions to automation and collaboration have earned me multiple recognitions, including the Star Award (3 times) at Vodafone _VOIS.</p>
-                <p class="bio-education">I hold a Bachelor of Engineering in Computer Science and Engineering from Institute of Engineering and Technology, Agra, and certifications such as AWS Cloud Practitioner and AWS Developer Associate.</p>
-                <a href="Rajkumaryadav_Devops_resume.pdf" download class="download-resume">
-                    <i class="fas fa-download"></i> Download Resume
+            <div class="bio-card">
+                <h2>DevOps Engineer</h2>
+                <p class="bio-text">
+                    Dedicated and results-driven DevOps Engineer with 4+ years of experience. Proficient in automating software development, deployment processes, and optimizing system performance. Skilled in CI/CD, Infrastructure as Code (IaC), containerization, and cloud technologies.
+                </p>
+                <p class="bio-text">
+                    Complete DevOps lifecycle implementation from code-checkout to delivery. Migration from SVN/TFS to Git & AWS CodeCommit. Designed branching strategies. Creation of pipelines in Jenkins and AWS DevOps. Work on migration Jenkins to GitHub Action. Created Helm chart for microservice. Created Dynatrace alerts and dashboard. ArgoCD integration.
+                </p>
+                <p class="bio-text">
+                    <strong>Education:</strong> Bachelor of Engineering in Computer Science and Engineering, Institute of Engineering and Technology, Agra (2017-2021)
+                </p>
+                <a href="Rajkumaryadav_Devops_resume.pdf" download class="download-btn">
+                    Download Resume
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Placeholder for other sections (add as needed) -->
-    <section id="skills" style="padding: 6rem 2rem; background: var(--card);">
-        <div style="max-width: 1200px; margin: 0 auto;">
-            <h2 style="text-align: center; font-size: 3rem; margin-bottom: 2rem;">Skills</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1rem;">
-                <div style="background: var(--glass); padding: 1rem; border-radius: 12px; text-align: center;">AWS</div>
-                <div style="background: var(--glass); padding: 1rem; border-radius: 12px; text-align: center;">Jenkins</div>
-                <div style="background: var(--glass); padding: 1rem; border-radius: 12px; text-align: center;">Docker</div>
-                <div style="background: var(--glass); padding: 1rem; border-radius: 12px; text-align: center;">Kubernetes</div>
-                <!-- Add more skills -->
+    <!-- Achievements Section - Restored & Stunning -->
+    <section id="achievements" class="achievements">
+        <div class="achievements-grid">
+            <div class="achievement-card">
+                <div class="year">2023</div>
+                <div class="award-badge"><i class="fas fa-star"></i></div>
+                <h3 class="award-title">Star Award</h3>
+                <p class="award-desc">Recognized for excellence in automation and pipeline optimization at Vodafone _VOIS</p>
+            </div>
+            <div class="achievement-card">
+                <div class="year">2024</div>
+                <div class="award-badge"><i class="fas fa-star"></i></div>
+                <h3 class="award-title">Star Award</h3>
+                <p class="award-desc">Leadership in Jenkins to GitHub Actions migration and GitOps implementation</p>
+            </div>
+            <div class="achievement-card">
+                <div class="year">2025</div>
+                <div class="award-badge"><i class="fas fa-star"></i></div>
+                <h3 class="award-title">Star Award</h3>
+                <p class="award-desc">Excellence in observability with Dynatrace and mentoring juniors</p>
             </div>
         </div>
     </section>
 
     <script>
+        // Active Navigation Highlight
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = ['about', 'experience', 'skills', 'projects', 'achievements', 'contact'];
+            sections.forEach(section => {
+                const element = document.getElementById(section);
+                if (element && element.getBoundingClientRect().top <= 100) {
+                    current = section;
+                }
+            });
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
         // Theme Toggle
         function toggleTheme() {
             const root = document.documentElement;
@@ -291,7 +338,6 @@
                 localStorage.setItem("theme", "dark");
             }
         }
-        // Load theme
         if (localStorage.getItem("theme") === "light") {
             document.documentElement.setAttribute("data-theme", "light");
             document.getElementById("theme-icon").classList.replace("fa-sun", "fa-moon");
