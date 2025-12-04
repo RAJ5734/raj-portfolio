@@ -142,6 +142,20 @@
             border: 1px solid #bfdbfe;
         }
 
+        .project-demo img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 10px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .project-demo a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
         footer {
             text-align: center;
             padding: 30px;
@@ -242,16 +256,22 @@
                 </div>
             </section>
 
-            <section>
-                <h3>Projects</h3>
+            <section class="project-demo">
+                <h3>Projects & DevOps Demo</h3>
                 <h4>Automated CI/CD Pipeline for Microservices</h4>
+                <p>This project demonstrates a complete DevOps workflow for deploying microservices using CI/CD pipelines. It includes automation for build, test, and deployment, containerization with Docker, orchestration with Kubernetes, and GitOps with ArgoCD.</p>
                 <ul>
-                    <li>Designed and implemented Jenkins + GitHub Actions CI/CD pipelines</li>
-                    <li>Containerized apps with Docker and deployed via Helm on Kubernetes</li>
-                    <li>Integrated Dynatrace for performance monitoring and alerting</li>
-                    <li>Added vulnerability scanning (Trivy/Snyk) in pipeline</li>
-                    <li>Enabled GitOps delivery using ArgoCD</li>
+                    <li>Collaborated with development teams to understand requirements and workflows.</li>
+                    <li>Implemented Jenkins-based CI/CD pipeline to automate build, test, and deployment.</li>
+                    <li>Containerized applications with Docker for seamless environments.</li>
+                    <li>Used Jenkins and Dynatrace for monitoring and alerting.</li>
+                    <li>Set up multiple connectivity and security checks in the pipeline.</li>
+                    <li>Created Helm charts for multiple services.</li>
+                    <li>Integrated vulnerability scanning for secure releases.</li>
                 </ul>
+                <h5>Demo Pipeline Diagram</h5>
+                <img src="https://miro.medium.com/v2/resize:fit:1015/1*rlPRYAfJ_aFOfoj52U7y2A.png" alt="CI/CD Pipeline Diagram">
+                <p><a href="https://github.com/RAJ5734" target="_blank">View Demo Code on GitHub</a></p>
             </section>
 
             <section>
