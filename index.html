@@ -26,257 +26,74 @@
             --border: rgba(0,0,0,0.1);
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.7;
-            transition: all 0.4s ease;
-        }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; transition: all 0.4s ease; }
         html { scroll-behavior: smooth; }
 
         /* Navigation */
         nav {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            background: var(--card);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border);
-            z-index: 1000;
-            padding: 1.2rem 0;
+            position: fixed; top: 0; left: 0; right: 0;
+            background: var(--card); backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border); z-index: 1000; padding: 1.2rem 0;
         }
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 900;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .nav-links a {
-            margin: 0 1.5rem;
-            text-decoration: none;
-            color: var(--text);
-            font-weight: 500;
-            padding: 0.6rem 1.2rem;
-            border-radius: 50px;
-            transition: all 0.3s;
-        }
-        .nav-links a:hover, .nav-links a.active {
-            background: rgba(99, 102, 241, 0.3);
-            color: white;
-        }
-        .theme-toggle {
-            background: var(--glass);
-            border: 1px solid var(--border);
-            width: 50px; height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 1.3rem;
-        }
+        .nav-container { max-width: 1400px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.8rem; font-weight: 900; background: var(--gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+        .nav-links a { margin: 0 1.5rem; text-decoration: none; color: var(--text); font-weight: 500; padding: 0.6rem 1.2rem; border-radius: 50px; transition: all 0.3s; }
+        .nav-links a:hover, .nav-links a.active { background: rgba(99,102,241,0.3); color: white; }
+        .theme-toggle { background: var(--glass); border: 1px solid var(--border); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.3rem; }
 
-        /* Hero Landing Animation */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 0 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(circle at 30% 70%, rgba(99,102,241,0.15), transparent 70%);
-        }
-        .hero h1 {
-            font-size: clamp(4.5rem, 10vw, 9rem);
-            font-weight: 900;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1.2s ease;
-        }
-        .hero h2 {
-            font-size: 2.8rem;
-            color: var(--text-light);
-            margin-bottom: 2rem;
-            animation: fadeInUp 1.2s ease 0.3s both;
-        }
-        .typing {
-            font-size: 2rem;
-            color: var(--accent);
-            height: 70px;
-            animation: fadeInUp 1.2s ease 0.6s both;
-        }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        /* Hero */
+        .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 2rem; position: relative; }
+        .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 30% 70%, rgba(99,102,241,0.15), transparent 70%); }
+        .hero h1 { font-size: clamp(4.5rem, 10vw, 9rem); font-weight: 900; background: var(--gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; animation: fadeInUp 1.2s ease; }
+        .hero h2 { font-size: 2.8rem; color: var(--text-light); animation: fadeInUp 1.2s ease 0.3s both; }
+        .typing { font-size: 2rem; color: var(--accent); height: 70px; animation: fadeInUp 1.2s ease 0.6s both; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* About Section - With Expertise Grid */
-        .about {
-            padding: 8rem 2rem 6rem;
-            background: rgba(10, 14, 23, 0.6);
-        }
-        .about-container {
-            max-width: 1300px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 4rem;
-        }
-        .profile-card {
-            background: var(--card);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--border);
-            border-radius: 32px;
-            padding: 3rem 2rem;
-            text-align: center;
-        }
-        .profile-img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            border: 5px solid var(--primary);
-            object-fit: cover;
-            margin-bottom: 1.5rem;
-        }
-        .profile-name {
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-        .profile-title {
-            color: var(--accent);
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-        .profile-location {
-            color: var(--text-light);
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-        }
-        .social-links a {
-            width: 50px; height: 50px;
-            background: var(--gradient);
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            margin: 0 0.5rem;
-            font-size: 1.3rem;
-        }
+        /* About */
+        .about { padding: 8rem 2rem 6rem; background: rgba(10,14,23,0.6); }
+        .about-container { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; }
+        .profile-card { background: var(--card); backdrop-filter: blur(20px); border: 1px solid var(--border); border-radius: 32px; padding: 3rem 2rem; text-align: center; }
+        .profile-img { width: 180px; height: 180px; border-radius: 50%; border: 5px solid var(--primary); object-fit: cover; margin-bottom: 1.5rem; }
+        .profile-name { font-size: 2.2rem; font-weight: 700; }
+        .profile-title { color: var(--accent); font-size: 1.3rem; font-weight: 600; margin-bottom: 1rem; }
+        .profile-location { color: var(--text-light); font-size: 1.1rem; margin-bottom: 2rem; }
+        .social-links a { width: 50px; height: 50px; background: var(--gradient); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; color: white; margin: 0 0.5rem; font-size: 1.3rem; }
+        .bio-text { background: var(--card); backdrop-filter: blur(20px); border: 1px solid var(--border); border-radius: 24px; padding: 2.5rem; color: var(--text-light); font-size: 1.1rem; line-height: 1.9; }
+        .expertise-title { text-align: center; font-size: 1.4rem; font-weight: 600; color: var(--primary); background: rgba(99,102,241,0.2); padding: 0.8rem 1.5rem; border-radius: 50px; display: inline-block; margin-bottom: 1rem; }
+        .expertise-subtitle { text-align: center; color: var(--text-light); margin-bottom: 3rem; }
+        .expertise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.8rem; }
+        .expertise-card { background: var(--card); backdrop-filter: blur(15px); border: 1px solid var(--border); border-radius: 20px; padding: 1.8rem; transition: transform 0.3s; }
+        .expertise-card:hover { transform: translateY(-8px); }
+        .expertise-icon { width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: white; margin-bottom: 1rem; }
 
-        .bio-and-expertise {
-            display: flex;
-            flex-direction: column;
-            gap: 3rem;
-        }
-        .bio-text {
-            background: var(--card);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--border);
-            border-radius: 24px;
-            padding: 2.5rem;
-            color: var(--text-light);
-            font-size: 1.1rem;
-            line-height: 1.9;
-        }
+        /* Experience */
+        .experience { padding: 6rem 2rem; background: rgba(15,20,35,0.8); }
+        .section-title { font-size: 3.5rem; text-align: center; margin-bottom: 3rem; background: var(--gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+        .timeline { max-width: 1000px; margin: 0 auto; position: relative; }
+        .timeline::before { content: ''; position: absolute; width: 4px; background: var(--primary); top: 0; bottom: 0; left: 50%; margin-left: -2px; }
+        .timeline-item { padding: 1rem 2rem; position: relative; width: 50%; background: var(--card); border-radius: 16px; margin-bottom: 2rem; }
+        .timeline-item:nth-child(odd) { left: 0; }
+        .timeline-item:nth-child(even) { left: 50%; }
+        .timeline-item::after { content: ''; position: absolute; width: 20px; height: 20px; background: var(--primary); border-radius: 50%; top: 20px; right: -10px; }
+        .timeline-item:nth-child(even)::after { left: -10px; }
 
-        /* Expertise Grid - From Puneeth */
-        .expertise-title {
-            text-align: center;
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: var(--primary);
-            background: rgba(99,102,241,0.2);
-            padding: 0.8rem 1.5rem;
-            border-radius: 50px;
-            display: inline-block;
-            margin-bottom: 1rem;
-        }
-        .expertise-subtitle {
-            text-align: center;
-            color: var(--text-light);
-            margin-bottom: 3rem;
-        }
-        .expertise-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.8rem;
-        }
-        .expertise-card {
-            background: var(--card);
-            backdrop-filter: blur(15px);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 1.8rem;
-            transition: transform 0.3s;
-        }
-        .expertise-card:hover {
-            transform: translateY(-8px);
-        }
-        .expertise-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            color: white;
-            margin-bottom: 1rem;
-        }
-        .expertise-card h4 {
-            font-size: 1.2rem;
-            margin-bottom: 0.8rem;
-            color: var(--text);
-        }
-        .expertise-card p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-        }
+        /* Skills, Projects, Achievements, Education - Grid Style */
+        .skills, .projects, .achievements, .education { padding: 6rem 2rem; }
+        .skills-grid, .projects-grid, .achievements-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; max-width: 1200px; margin: 2rem auto; }
+        .skill-tag, .project-tag, .achievement-tag { background: var(--glass); border: 1px solid var(--border); padding: 1rem; border-radius: 12px; text-align: center; }
 
-        .download-btn {
-            display: inline-block;
-            margin-top: 2rem;
-            padding: 1.2rem 2.5rem;
-            background: var(--gradient);
-            color: white;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
+        /* Contact Section - EXACTLY like Puneeth */
+        .contact { padding: 10rem 2rem; text-align: center; background: #0a0e17; }
+        .contact-btn { display: inline-block; background: rgba(99,102,241,0.2); color: var(--primary); padding: 0.8rem 2rem; border-radius: 50px; font-weight: 600; margin-bottom: 3rem; text-decoration: none; }
+        .contact h1 { font-size: 5.5rem; font-weight: 900; margin-bottom: 1rem; }
+        .contact h1 span { background: var(--gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+        .contact p { font-size: 1.4rem; color: var(--text-light); margin-bottom: 4rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+        .contact-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto; }
+        .contact-card { background: var(--card); backdrop-filter: blur(20px); border: 1px solid var(--border); border-radius: 24px; padding: 2.5rem; text-align: center; }
+        .contact-icon { width: 80px; height: 80px; background: var(--gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem; color: white; }
+        .contact-card a { display: inline-block; margin-top: 1rem; padding: 0.8rem 1.8rem; background: var(--gradient); color: white; border-radius: 50px; text-decoration: none; font-weight: 600; }
 
-        /* Responsive */
-        @media (max-width: 992px) {
-            .about-container { grid-template-columns: 1fr; }
-            .expertise-grid { grid-template-columns: 1fr 1fr; }
-        }
-        @media (max-width: 768px) {
-            .expertise-grid { grid-template-columns: 1fr; }
-            .nav-links { display: none; }
-        }
+        @media (max-width: 992px) { .about-container { grid-template-columns: 1fr; } .timeline-item { width: 100%; left: 0 !important; } .timeline::before { left: 31px; } .timeline-item::after { left: 21px; } }
     </style>
 </head>
 <body>
@@ -288,17 +105,18 @@
             <div class="nav-links">
                 <a href="#hero" class="active">Home</a>
                 <a href="#about">About</a>
+                <a href="#experience">Experience</a>
                 <a href="#skills">Skills</a>
-                <a href="#achievements">Awards</a>
+                <a href="#projects">Projects</a>
+                <a href="#achievements">Achievements</a>
+                <a href="#education">Education</a>
                 <a href="#contact">Contact</a>
             </div>
-            <button class="theme-toggle" onclick="toggleTheme()">
-                <i class="fas fa-sun" id="theme-icon"></i>
-            </button>
+            <button class="theme-toggle" onclick="toggleTheme()"><i class="fas fa-sun" id="theme-icon"></i></button>
         </div>
     </nav>
 
-    <!-- Hero Landing Animation -->
+    <!-- Hero -->
     <section id="hero" class="hero">
         <div>
             <h1>Raj Kumar Yadav</h1>
@@ -307,12 +125,11 @@
         </div>
     </section>
 
-    <!-- About Section with Expertise Grid -->
+    <!-- About -->
     <section id="about" class="about">
         <div class="about-container">
-            <!-- Profile Card -->
             <div class="profile-card">
-                <img src="https://via.placeholder.com/180x180/6366f1/ffffff?text=RJY" alt="Raj Kumar Yadav" class="profile-img">
+                <img src="profile.jpg" alt="Raj Kumar Yadav" class="profile-img">
                 <h2 class="profile-name">Raj Kumar Yadav</h2>
                 <p class="profile-title">Assistant Manager (DevOps & Cloud)</p>
                 <p class="profile-location">Pune, India</p>
@@ -321,130 +138,145 @@
                     <a href="https://linkedin.com/in/rajkumaryadav99" target="_blank"><i class="fab fa-linkedin"></i></a>
                     <a href="https://github.com/RAJ5734" target="_blank"><i class="fab fa-github"></i></a>
                 </div>
-                <a href="Rajkumaryadav_Devops_resume.pdf" download class="download-btn">
-                    Download Resume
-                </a>
+                <a href="Rajkumaryadav_Devops_resume.pdf" download class="download-btn">Download Resume</a>
             </div>
-
-            <!-- Bio + Technical Expertise Grid -->
-            <div class="bio-and-expertise">
+            <div>
                 <div class="bio-text">
-                    Dedicated and results-driven DevOps Engineer with 4+ years of experience. Proficient in automating software development, deployment processes, and optimizing system performance. Skilled in CI/CD, Infrastructure as Code (IaC), containerization, and cloud technologies. Seeking opportunities to contribute technical expertise to a dynamic DevOps team.
+                    Dedicated and results-driven DevOps Engineer with 4+ years of experience. Proficient in automating software development, deployment processes, and optimizing system performance. Skilled in CI/CD, Infrastructure as Code (IaC), containerization, and cloud technologies.
                 </div>
-
-                <div>
+                <div style="margin-top:3rem;">
                     <div class="expertise-title">Technical Expertise</div>
-                    <p class="expertise-subtitle">4+ years of hands-on DevOps experience across cloud platforms, automation, and enterprise delivery</p>
-
+                    <p class="expertise-subtitle">Complete DevOps lifecycle | Jenkins → GitHub Actions | AWS | Kubernetes | GitOps</p>
                     <div class="expertise-grid">
-                        <div class="expertise-card">
-                            <div class="expertise-icon" style="background: linear-gradient(135deg, #a78bfa, #818cf8);"><i class="fas fa-code-branch"></i></div>
-                            <h4>CI/CD Pipelines</h4>
-                            <p>End-to-end pipeline design using Jenkins, GitHub Actions, AWS CodePipeline with automated testing & rollback</p>
-                        </div>
-                        <div class="expertise-card">
-                            <div class="expertise-icon" style="background: linear-gradient(135deg, #34d399, #10b981);"><i class="fas fa-cloud"></i></div>
-                            <h4>Cloud & Containerization</h4>
-                            <p>AWS (EC2, EKS, Lambda), Docker, Kubernetes, Helm charts, ECR, CloudFormation</p>
-                        </div>
-                        <div class="expertise-card">
-                            <div class="expertise-icon" style="background: linear-gradient(135deg, #f97316, #ef4444);"><i class="fas fa-shield-alt"></i></div>
-                            <h4>Security & Compliance</h4>
-                            <p>Secure pipeline design, secret management, IAM roles, compliance-ready deployments</p>
-                        </div>
-                        <div class="expertise-card">
-                            <div class="expertise-icon" style="background: linear-gradient(135deg, #8b5cf6, #ec4899);"><i class="fas fa-robot"></i></div>
-                            <h4>Infrastructure as Code</h4>
-                            <p>Terraform, CloudFormation, Helm — automated infra provisioning & drift detection</p>
-                        </div>
-                        <div class="expertise-card">
-                            <div class="expertise-icon" style="background: linear-gradient(135deg, #06b45309, #f59e0b);"><i class="fas fa-chart-area"></i></div>
-                            <h4>Observability</h4>
-                            <p>Dynatrace dashboards, alerts, Splunk queries, CloudWatch, Prometheus</p>
-                        </div>
-                        <div class="expertise-card">
-                            <div class="expertise-icon" style="background: linear-gradient(135deg, #06b6d4, #0ea5e9);"><i class="fas fa-users"></i></div>
-                            <h4>Team Leadership</h4>
-                            <p>Mentoring juniors, knowledge sharing, DevOps culture transformation</p>
-                        </div>
+                        <div class="expertise-card"><div class="expertise-icon" style="background:linear-gradient(135deg,#a78bfa,#818cf8);"><i class="fas fa-code-branch"></i></div><h4>CI/CD Mastery</h4><p>Jenkins, GitHub Actions, AWS CodePipeline</p></div>
+                        <div class="expertise-card"><div class="expertise-icon" style="background:linear-gradient(135deg,#34d399,#10b981);"><i class="fas fa-cloud"></i></div><h4>Cloud & Containers</h4><p>AWS EKS, Docker, Helm, Terraform</p></div>
+                        <div class="expertise-card"><div class="expertise-icon" style="background:linear-gradient(135deg,#f97316,#ef4444);"><i class="fas fa-shield-alt"></i></div><h4>Security</h4><p>IAM, Secrets, Compliance</p></div>
+                        <div class="expertise-card"><div class="expertise-icon" style="background:linear-gradient(135deg,#8b5cf6,#ec4899);"><i class="fas fa-robot"></i></div><h4>GitOps</h4><p>ArgoCD, Helm Charts</p></div>
+                        <div class="expertise-card"><div class="expertise-icon" style="background:linear-gradient(135deg,#06b6d4,#0ea5e9);"><i class="fas fa-chart-area"></i></div><h4>Observability</h4><p>Dynatrace, Splunk, CloudWatch</p></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section (Icons) -->
-    <section id="skills" style="padding:6rem 2rem;background:rgba(15,20,35,0.8);">
-        <div style="max-width:1200px;margin:0 auto;text-align:center;">
-            <h2 style="font-size:3.5rem;margin-bottom:3rem;background:var(--gradient);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;">Technical Skills</h2>
-            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:2rem;">
-                <div style="background:var(--card);padding:2rem;border-radius:20px;"><i class="fab fa-aws" style="font-size:3rem;color:#f90;"></i><br><strong>AWS</strong></div>
-                <div style="background:var(--card);padding:2rem;border-radius:20px;"><i class="fas fa-tools" style="font-size:3rem;color:#f00;"></i><br><strong>Jenkins</strong></div>
-                <div style="background:var(--card);padding:2rem;border-radius:20px;"><i class="fab fa-docker" style="font-size:3rem;color:#0db7ed;"></i><br><strong>Docker</strong></div>
-                <div style="background:var(--card);padding:2rem;border-radius:20px;"><i class="fas fa-cubes" style="font-size:3rem;color:#326ce5;"></i><br><strong>Kubernetes</strong></div>
-                <div style="background:var(--card);padding:2rem;border-radius:20px;"><i class="fas fa-code" style="font-size:3rem;color:#f29111;"></i><br><strong>Terraform</strong></div>
-                <div style="background:var(--card);padding:2rem;border-radius:20px;"><i class="fas fa-eye" style="font-size:3rem;color:#00d4aa;"></i><br><strong>Dynatrace</strong></div>
+    <!-- Experience -->
+    <section id="experience" class="experience">
+        <h2 class="section-title">Experience</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>Assistant Manager (DevOps & Cloud)</h3>
+                <p><strong>Vodafone Intelligent Solutions (_VOIS)</strong> • Pune, India • 06/2022 - Present</p>
+                <ul>
+                    <li>Complete DevOps lifecycle implementation from code-checkout to delivery</li>
+                    <li>Migration from SVN/TFS to Git & AWS CodeCommit</li>
+                    <li>Designed branching strategies</li>
+                    <li>Jenkins to GitHub Actions migration</li>
+                    <li>Created Helm charts, Dynatrace dashboards & alerts</li>
+                    <li>ArgoCD integration for GitOps</li>
+                </ul>
+            </div>
+            <div class="timeline-item">
+                <h3>Jr. DevOps Engineer</h3>
+                <p><strong>Cassini Technology Pvt. Ltd.</strong> • 05/2021 - 05/2022</p>
+                <ul>
+                    <li>Microservices version control & monitoring</li>
+                    <li>Write CI/CD Pipeline</li>
+                    <li>Create dashboard on Splunk</li>
+                </ul>
             </div>
         </div>
     </section>
 
+    <!-- Skills -->
+    <section id="skills" class="skills">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-tag">AWS</div><div class="skill-tag">Jenkins</div><div class="skill-tag">Docker</div><div class="skill-tag">Kubernetes</div>
+            <div class="skill-tag">EKS</div><div class="skill-tag">Splunk</div><div class="skill-tag">Git</div><div class="skill-tag">GitHub Actions</div>
+            <div class="skill-tag">ArgoCD</div><div class="skill-tag">Helm</div><div class="skill-tag">Terraform</div><div class="skill-tag">Python</div>
+            <div class="skill-tag">Linux</div><div class="skill-tag">CloudWatch</div><div class="skill-tag">Dynatrace</div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="projects" style="background:rgba(15,20,35,0.8);">
+        <h2 class="section-title">Projects</h2>
+        <div class="projects-grid">
+            <div class="project-tag"><strong>Automated CI/CD Pipeline for Microservices</strong><br>Cross-functional pipeline with automated testing, security scans & rollback</div>
+            <div class="project-tag"><strong>Jenkins to GitHub Actions Migration</strong><br>Migrated 50+ pipelines, reduced build time by 60%</div>
+            <div class="project-tag"><strong>Observability Platform</strong><br>Dynatrace + Splunk dashboards for 100+ microservices</div>
+        </div>
+    </section>
+
     <!-- Achievements -->
-    <section id="achievements" style="padding:6rem 2rem;background:rgba(10,14,23,0.6);">
-        <div style="max-width:1200px;margin:0 auto;">
-            <h2 style="text-align:center;font-size:3.5rem;margin-bottom:4rem;background:var(--gradient);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;">Awards & Achievements</h2>
-            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem;">
-                <div style="background:var(--card);backdrop-filter:blur(20px);border:1px solid var(--border);border-radius:24px;padding:2.5rem;text-align:center;position:relative;overflow:hidden;">
-                    <div style="font-size:6rem;font-weight:900;opacity:0.1;position:absolute;top:10px;right:15px;">2023</div>
-                    <div style="width:80px;height:80px;background:linear-gradient(135deg,#f59e0b,#ef4444);border-radius:50%;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;color:white;font-size:2.2rem;"><i class="fas fa-star"></i></div>
-                    <h3>Star Award 2023</h3>
-                    <p style="color:var(--text-light);">Excellence in automation & pipeline optimization</p>
-                </div>
-                <!-- Repeat for 2024, 2025 -->
-                <div style="background:var(--card);backdrop-filter:blur(20px);border:1px solid var(--border);border-radius:24px;padding:2.5rem;text-align:center;position:relative;overflow:hidden;">
-                    <div style="font-size:6rem;font-weight:900;opacity:0.1;position:absolute;top:10px;right:15px;">2024</div>
-                    <div style="width:80px;height:80px;background:linear-gradient(135deg,#10b981,#059669);border-radius:50%;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;color:white;font-size:2.2rem;"><i class="fas fa-trophy"></i></div>
-                    <h3>Star Award 2024</h3>
-                    <p style="color:var(--text-light);">Leadership in GitOps & ArgoCD adoption</p>
-                </div>
-                <div style="background:var(--card);backdrop-filter:blur(20px);border:1px solid var(--border);border-radius:24px;padding:2.5rem;text-align:center;position:relative;overflow:hidden;">
-                    <div style="font-size:6rem;font-weight:900;opacity:0.1;position:absolute;top:10px;right:15px;">2025</div>
-                    <div style="width:80px;height:80px;background:linear-gradient(135deg,#8b5cf6,#ec4899);border-radius:50%;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;color:white;font-size:2.2rem;"><i class="fas fa-medal"></i></div>
-                    <h3>Star Award 2025</h3>
-                    <p style="color:var(--text-light);">Excellence in observability & mentoring</p>
-                </div>
+    <section id="achievements" class="achievements">
+        <h2 class="section-title">Achievements & Certifications</h2>
+        <div class="achievements-grid">
+            <div class="achievement-tag"><strong>Star Award ×3</strong><br>2023, 2024, 2025 - Vodafone _VOIS</div>
+            <div class="achievement-tag"><strong>AWS Cloud Practitioner</strong><br>Skillsoft</div>
+            <div class="achievement-tag"><strong>AWS Developer Associate</strong><br>Skillsoft</div>
+        </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="education" style="background:rgba(15,20,35,0.8);">
+        <h2 class="section-title">Education</h2>
+        <div style="max-width:800px;margin:2rem auto;text-align:center;">
+            <h3>Bachelor of Engineering in Computer Science and Engineering</h3>
+            <p>Institute of Engineering and Technology, Agra • 2017-2021</p>
+            <br>
+            <h3>Intermediate & High School</h3>
+            <p>Jai Narayan Vidya Mandir, Kanpur</p>
+        </div>
+    </section>
+
+    <!-- Contact - EXACTLY like Puneeth -->
+    <section id="contact" class="contact">
+        <a href="mailto:raj.jnvm2000@gmail.com" class="contact-btn">Let's Connect</a>
+        <h1>Ready to build<br><span>something amazing?</span></h1>
+        <p>Let's discuss how my DevOps expertise can accelerate your next project.</p>
+        <div class="contact-cards">
+            <div class="contact-card">
+                <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                <h3>Email</h3>
+                <p>raj.jnvm2000@gmail.com</p>
+                <a href="mailto:raj.jnvm2000@gmail.com">Send Email</a>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
+                <h3>LinkedIn</h3>
+                <p>rajkumaryadav99</p>
+                <a href="https://linkedin.com/in/rajkumaryadav99" target="_blank">Connect on LinkedIn</a>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                <h3>Location</h3>
+                <p>Pune, India</p>
+                <a href="https://maps.google.com/?q=Pune,India" target="_blank">View on Map</a>
             </div>
         </div>
     </section>
 
     <script>
-        // Typing Effect
+        // Typing
         const texts = ["DevOps Engineer", "Cloud Specialist", "Automation Expert", "GitOps Practitioner"];
         let i = 0, j = 0, forward = true;
         const el = document.getElementById("typing");
         setInterval(() => {
-            if (forward && j <= texts[i].length) {
-                el.textContent = texts[i].substring(0, j++) + "|";
-            } else if (!forward && j >= 0) {
-                el.textContent = texts[i].substring(0, j--) + "|";
-            } else if (j === texts[i].length) {
-                forward = false;
-            } else if (j === 0) {
-                forward = true;
-                i = (i + 1) % texts.length;
-            }
+            if (forward && j <= texts[i].length) el.textContent = texts[i].substring(0, j++) + "|";
+            else if (!forward && j >= 0) el.textContent = texts[i].substring(0, j--) + "|";
+            else if (j === texts[i].length) forward = false;
+            else if (j === 0) { forward = true; i = (i + 1) % texts.length; }
         }, 120);
 
         // Active Nav
         window.addEventListener('scroll', () => {
             let current = 'hero';
-            const sections = ['hero', 'about', 'skills', 'achievements'];
-            sections.forEach(section => {
-                const el = document.getElementById(section);
-                if (el && el.getBoundingClientRect().top <= 100) current = section;
+            ['hero','about','experience','skills','projects','achievements','education','contact'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el && el.getBoundingClientRect().top <= 120) current = id;
             });
-            document.querySelectorAll('.nav-links a').forEach(a => {
-                a.classList.toggle('active', a.getAttribute('href') === `#${current}`);
-            });
+            document.querySelectorAll('.nav-links a').forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${current}`));
         });
 
         // Theme Toggle
